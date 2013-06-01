@@ -5,7 +5,7 @@ define virtualenv::package (
   $env_ = Virtualenv::Env[$env]
   $path = getparam($env_, 'path')
 
-  exec {'ve-${env}-install-${package}':
+  exec {"ve-${env}-install-${package}":
     command => '${path}/bin/pip install ${package}',
     require => $env_,
     user => getparam($env_, 'user'),
